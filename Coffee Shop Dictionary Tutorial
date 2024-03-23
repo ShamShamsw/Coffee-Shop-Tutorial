@@ -1,0 +1,120 @@
+# In this Python program, we will create a simple coffee shop simulation using fundamental programming concepts such as strings, integers, doubles, and floats. 
+# This program will showcase how to define a menu, take customer orders, calculate total costs, and provide a seamless user experience.
+
+# Throughout this tutorial, I'll demonstrate how to use strings to represent menu items
+# Why integers should handle quantitie
+# Why doubles and floats to store prices
+# Lastly why dictionary's are used to organize menu items and their corresponding prices.
+
+# By following along with this tutorial, you'll gain a better understanding of basic data types in Python to build your own applications.
+# Whether you're new to programming or looking to reinforce your understanding of fundamental concepts.
+# This tutorial will provide you with a foundation for Python programming for real-world applications.
+
+# About print statements 
+# When using a print statement their are infinite amounts of outputs.
+# However it is your responsability to get the correct output/outputs to the correct user/users.
+# As such when starting a basic program consider a simple print statement to explain/introduce your program
+# Additionally you could assign a string variable and print it as well
+# You could do this by doing:  welcome = "Welcome to Our Coffee Shop!" 
+# Then simply change the code bellow to print(welcome)
+
+# Key points
+# Keep in mind variables are case sensative as such the variable welcome and the variable Welcome would be two diffent variables
+# Having a organized dictonary allows for a clear and concise representation of the menu.
+
+# What does mutable mean?
+# Dictionaries in Python are mutable, meaning that items can be added, removed, or modified as needed.
+# This makes it easy to update the menu by simply adding or changing entries in the dictionary without needing to rewrite large portions of code.
+
+# Why are dictonary's simpler to use
+# By organizing the menu items and prices in a dictionary, the code logic for displaying the menu, taking orders, and calculating costs becomes simpler and more intuitive.
+# Instead of managing separate lists or variables for items and prices, everything is contained within one data structure.
+
+# What I think is most important (Scalability)
+# As the menu grows with more items, the dictionary can easily accommodate new additions without requiring significant changes to the code.
+# This scalability is important for businesses that may regularly update their menu offerings.
+
+# Welcome message
+print("Welcome to Our Coffee Shop!")
+
+# About dictonaries
+# The dictonary variable menu is a data structure in Python that stores menu items as keys and their corresponding prices as values.
+# Each menu item is associated with its price, creating a clear relationship between the two.
+#This association allows easy retrieval of prices when given an item name.
+
+#Summary
+# In summary, using a dictionary to organize menu items and their prices offers 
+# clarity, efficiency, flexibility, and scalability, making it a valuable tool for managing any shop menu within a Python program.
+
+# Menu items and their prices
+# Each item and its price are listed together, making it easy for someone reading the code to understand what items are available and their respective prices.
+menu = {
+    "Latte": 3.50,             # The name of the item is a string "Latte", meanwhile double or long works for the price of a latte
+    "Coffee": 2.50,            # Price of a coffee
+    "Iced Tea": 2.00,          # Price of an iced tea
+    "Muffin": 1.75,            # Price of a muffin
+    "Croissant": 2.00,         # Price of a croissant
+    "Donut": 1.50              # Price of a donut
+}
+
+#Their are multiple commands in python you can use to organize better your output
+# One way to organize you output is \n which creates a new line
+# To make sure my menu is displayed on a new line in added it before my text
+
+# Display the menu
+print("\nMenu:")
+for item, price in menu.items():
+    print(f"{item}: ${price:.2f}")
+
+# For any program you write in business its important to organize and create sections for your code
+# These sections should be clearly labled or include comments to describe what each line of code does
+# In my tutorial I have a introduction and summary before my code
+# I would also recomend describing what your code does somewhere in the first couple of lines
+
+# User Input
+# When making a shop you will need to have user input in order to create a sale
+# this can be done with the input() function which will take input from the user in the output terminal
+# I would also strongly recomend giving text to your output explaining what the input it is look for from the user
+# Below in my code I put  "What would you like to order?" and "How many would you like?: " to clearly state what input I would like from the user
+
+# User error
+# User error is something that proffesional coder should away have prepared
+# When it comes to users a simple misclick or typo is the differance between coffee and cffeeo
+# As such as a programer its important to take these mistakes into account and create your own method of handling these mistakes
+
+# If statements
+# As you can see my final code snippit is a if statement
+# If statements can execute different code based on whether a certain condition is true or false
+# In this case, it checks whether the total cost is greater than zero, which implies that the item the customer ordered exists on the menu and the order is valid.
+
+# Why use IF statements
+# The code becomes more organized, and as a programer you can see the flow of the program is clearer.
+# Its also usefull for the user as it gives clear feedback to the user about the availability of items on the menu overall increasing the user's experience.
+
+# IF Statement Summary
+# IF statement are crucial for organizing the code, handling errors, providing feedback, and enhancing the overall user experience
+# It is crucial in processing customer orders in for this coffee shop program.
+
+# Error Handling 
+# This was my  solution to user error but their are other methods but here is how it works.
+# If the total cost is greater than zero, it indicates that the item is found on the menu and the order is valid.
+# In this case, the program proceeds to display the order details and the total cost.
+# This helps in preventing errors and ensures that the program provides accurate information to the customer.
+# If the total cost is not greater than zero, it implies that the item the customer ordered is not found on the menu or the quantity entered is invalid (e.g., negative quantity). 
+
+# Customer order
+order = input("\nWhat would you like to order? (Enter item name): ").capitalize()
+quantity = int(input("How many would you like?: "))
+
+# Calculate total cost
+total_cost = menu.get(order, 0) * quantity
+
+# Display order details
+if total_cost > 0:
+    print(f"\nYour order: {quantity} {order}(s)")
+    print(f"Total cost: ${total_cost:.2f}")
+else:
+    print("\nSorry, we don't have that item on the menu.")
+
+# Thank you message
+print("\nThank you for visiting our coffee shop! Have a great day!")
